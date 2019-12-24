@@ -8,11 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.bottomnavigationexample.ui.home.Item
+import com.example.bottomnavigationexample.ui.homeDetail.ItemAdapter
 
 
 @BindingAdapter("adapter")
 fun setAdapter(view: RecyclerView, adapter: ListAdapter<*, *>) {
     view.adapter = adapter
+}
+
+@BindingAdapter("app:item_adapter", "app:items")
+fun bind(recyclerView: RecyclerView, adapter: ItemAdapter?, data: List<Item>?) {
+    recyclerView.adapter = adapter
+    adapter!!.submitList(data)
 }
 
 @BindingAdapter("image")

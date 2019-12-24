@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context=".ui.homeDetail.HomeDetailFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <data>
+
+        <variable
+            name="Category"
+            type="com.example.bottomnavigationexample.ui.home.CategoryData" />
+
+        <variable
+            name="ViewModel"
+            type="com.example.bottomnavigationexample.ui.homeDetail.HomeDetailViewModel" />
+    </data>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Hello" />
+        android:scrollbars="vertical"
+        app:item_adapter="@{ViewModel.adapter}"
+        app:items="@{Category.items}"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:context=".ui.homeDetail.HomeDetailFragment"
+        tools:listitem="@layout/item_list_row" />
 
-</FrameLayout>
+
+</layout>

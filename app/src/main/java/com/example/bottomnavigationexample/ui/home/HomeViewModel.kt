@@ -15,9 +15,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 class HomeViewModel : ViewModel(), CategoryAdapter.ClickListener {
-    override fun onRowClick(category: CategoryData, v: View) {
-        v.findNavController().navigate(HomeFragmentDirections.homeToDetail(category.name!!,category))
-    }
+
 
     private val tag = HomeViewModel::class.java.name
 
@@ -77,4 +75,7 @@ class HomeViewModel : ViewModel(), CategoryAdapter.ClickListener {
             ).await()
         }
 
+    override fun onRowClick(category: CategoryData, v: View) {
+        v.findNavController().navigate(HomeFragmentDirections.homeToDetail(category.name!!,category))
+    }
 }

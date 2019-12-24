@@ -9,30 +9,41 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.navArgs
 
 import com.example.bottomnavigationexample.R
+import com.example.bottomnavigationexample.databinding.HomeDetailFragmentBinding
+import com.example.bottomnavigationexample.ui.home.CategoryData
 
 class HomeDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HomeDetailFragment()
+
+    private val args: HomeDetailFragmentArgs by navArgs()
+
+    private val viewModel: HomeDetailViewModel by lazy {
+        ViewModelProviders.of(this).get(HomeDetailViewModel::class.java)
     }
 
-    private lateinit var viewModel: HomeDetailViewModel
+    private val category: CategoryData by lazy {
+        args.category
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-//        findNavController(findNavControllerthis).currentDestination!!.label = "Hello"
-        return inflater.inflate(R.layout.home_detail_fragment, container, false)
+    ): View {
+
+        val binding = HomeDetailFragmentBinding.inflate(layoutInflater)
+
+        binding.lifecycleOwner = this
+
+        binding.category = category
+
+        binding.viewModel = viewModel
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(HomeDetailViewModel::class.java)
-
-        // TODO: Use the ViewModel
-    }
 
 }
