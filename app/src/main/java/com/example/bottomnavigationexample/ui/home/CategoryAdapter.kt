@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bottomnavigationexample.databinding.CategoryListRowBinding
+import com.example.bottomnavigationexample.databinding.MainCategoryListRowBinding
 
 class CategoryAdapter(private val listener: ClickListener) :
-    ListAdapter<CategoryData, CategoryAdapter.StoreViewHolder>(DiffCallback) {
+    ListAdapter<CategoryData, RecyclerView.ViewHolder>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<CategoryData>() {
         override fun areItemsTheSame(oldItem: CategoryData, newItem: CategoryData): Boolean {
@@ -22,34 +23,59 @@ class CategoryAdapter(private val listener: ClickListener) :
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoreViewHolder {
-        return StoreViewHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if(viewType==0)
+            MainViewHolder(
+                MainCategoryListRowBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+            )
+        else SecondViewHolder(
             CategoryListRowBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
         )
+
+
+
     }
 
-    override fun onBindViewHolder(holder: StoreViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val marsProperty = getItem(position)
-        holder.bind(marsProperty)
+
+        if (holder.itemViewType == 0) (holder as MainViewHolder).bind(marsProperty)
+        else (holder as SecondViewHolder).bind(marsProperty)
+
+
+
         holder.itemView.setOnClickListener { v ->
             listener.onRowClick(marsProperty, v)
         }
-
     }
 
+    override fun getItemViewType(position: Int): Int {
+        // Just as an example, return 0 or 2 depending on position
+        return position % 2
+    }
 
-    class StoreViewHolder(private var binding: CategoryListRowBinding) :
+    class SecondViewHolder(private var binding: CategoryListRowBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(category: CategoryData) {
             binding.category = category
             binding.executePendingBindings()
         }
+    }
 
-
+    class MainViewHolder(private var binding: MainCategoryListRowBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(category: CategoryData) {
+            binding.category = category
+            binding.executePendingBindings()
+        }
     }
 
 

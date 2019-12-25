@@ -29,7 +29,7 @@
                 android:scrollbars="vertical"
                 app:adapter="@{ViewModel.adapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/category_list_row" />
+                tools:listitem="@layout/offer_list_row" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

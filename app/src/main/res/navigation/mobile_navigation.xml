@@ -35,13 +35,14 @@
     <fragment
         android:id="@+id/home_detail_fragment"
         android:name="com.example.bottomnavigationexample.ui.home.homeDetail.HomeDetailFragment"
-        android:label="{title}"
+        android:label="home_detail_fragment"
         tools:layout="@layout/home_detail_fragment">
-        <argument
-            android:name="title"
-            app:argType="string" />
+
+
         <argument
             android:name="Category"
             app:argType="com.example.bottomnavigationexample.ui.home.CategoryData" />
     </fragment>
+
+
 </navigation>

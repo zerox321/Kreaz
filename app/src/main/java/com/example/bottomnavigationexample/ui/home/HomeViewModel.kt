@@ -74,6 +74,6 @@ class HomeViewModel : ViewModel(), CategoryAdapter.ClickListener {
         }
 
     override fun onRowClick(category: CategoryData, v: View) {
-        v.findNavController().navigate(HomeFragmentDirections.homeToDetail(category.name!!,category))
+        v.findNavController().navigate(HomeFragmentDirections.homeToDetail(category))
     }
 }
