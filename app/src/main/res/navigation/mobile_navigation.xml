@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/home_detail_fragment"
-        android:name="com.example.bottomnavigationexample.ui.homeDetail.HomeDetailFragment"
+        android:name="com.example.bottomnavigationexample.ui.home.homeDetail.HomeDetailFragment"
         android:label="{title}"
         tools:layout="@layout/home_detail_fragment">
         <argument

@@ -3,12 +3,10 @@ package com.example.bottomnavigationexample.ui.home
 import android.util.Log
 import android.view.View
 import androidx.databinding.ObservableBoolean
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.findNavController
-import com.example.bottomnavigationexample.ui.api.Server_Url_Coroutines
+import com.example.bottomnavigationexample.api.Server_Url_Coroutines
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

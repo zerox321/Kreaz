@@ -9,23 +9,28 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.bottomnavigationexample.R
+import com.example.bottomnavigationexample.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+
+    private val viewModel: DashboardViewModel by lazy {
+        ViewModelProviders.of(this).get( DashboardViewModel::class.java)
+    }
+
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        val binding = FragmentDashboardBinding.inflate(layoutInflater)
+
+        binding.lifecycleOwner = this
+
+        binding.viewModel = viewModel
+
+        return binding.root
     }
+
+
 }

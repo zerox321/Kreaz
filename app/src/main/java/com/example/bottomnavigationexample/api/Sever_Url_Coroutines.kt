@@ -1,6 +1,5 @@
-package com.example.bottomnavigationexample.ui.api
+package com.example.bottomnavigationexample.api
 
-import com.example.bottomnavigationexample.ui.api.ServerApis
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

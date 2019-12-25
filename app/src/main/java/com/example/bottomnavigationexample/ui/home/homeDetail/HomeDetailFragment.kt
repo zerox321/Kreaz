@@ -1,4 +1,4 @@
-package com.example.bottomnavigationexample.ui.homeDetail
+package com.example.bottomnavigationexample.ui.home.homeDetail
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.navArgs
 
-import com.example.bottomnavigationexample.R
 import com.example.bottomnavigationexample.databinding.HomeDetailFragmentBinding
 import com.example.bottomnavigationexample.ui.home.CategoryData
 

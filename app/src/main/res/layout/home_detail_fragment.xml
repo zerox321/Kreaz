@@ -11,7 +11,7 @@
 
         <variable
             name="ViewModel"
-            type="com.example.bottomnavigationexample.ui.homeDetail.HomeDetailViewModel" />
+            type="com.example.bottomnavigationexample.ui.home.homeDetail.HomeDetailViewModel" />
     </data>
 
 
@@ -23,7 +23,7 @@
         app:item_adapter="@{ViewModel.adapter}"
         app:items="@{Category.items}"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:context=".ui.homeDetail.HomeDetailFragment"
+        tools:context=".ui.home.homeDetail.HomeDetailFragment"
         tools:listitem="@layout/item_list_row" />
 
 
