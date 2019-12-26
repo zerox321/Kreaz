@@ -10,6 +10,7 @@
             type="com.example.bottomnavigationexample.ui.home.Item" />
 
 
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -17,28 +18,41 @@
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
         android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="8dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
-
-
-        <LinearLayout
+        <com.example.bottomnavigationexample.util.AspectLockedImageView
+            android:id="@+id/movie_item_image"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:image="@{Item.img}"
+            app:imageAspectRatio="@dimen/movie_item_image_aspect_ratio"
+            />
+
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.25"
+            android:background="@android:color/black"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:text="@{Item.name}"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="@dimen/md_keyV"
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                app:image="@{Item.img}" />
+            android:textSize="16sp"
+            android:textColor="@android:color/white" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{Item.name}" />
-
-
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </layout>

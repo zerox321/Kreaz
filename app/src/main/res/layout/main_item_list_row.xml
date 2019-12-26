@@ -5,11 +5,9 @@
 
     <data>
 
-
         <variable
-            name="Category"
-            type="com.example.bottomnavigationexample.ui.home.CategoryData" />
-
+            name="Item"
+            type="com.example.bottomnavigationexample.ui.home.Item" />
 
     </data>
 
@@ -27,9 +25,9 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            app:image="@{Category.icon}"
+            app:image="@{Item.img}"
             app:imageAspectRatio="@dimen/movie_item_image_aspect_ratio2"
-             />
+            />
 
 
 
@@ -39,20 +37,23 @@
             android:layout_height="match_parent"
             android:alpha="0.25"
             android:background="@android:color/black"
-        />
+            />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@{Category.name}"
+            android:text="@{Item.name}"
             android:textStyle="bold"
-            android:gravity="center"
             android:padding="@dimen/md_keyV"
-
             android:textSize="16sp"
+            android:gravity="center"
             android:textColor="@android:color/white" />
 
 
     </androidx.cardview.widget.CardView>
 </layout>
+
+
+
+
