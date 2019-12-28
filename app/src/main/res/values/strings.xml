@@ -3,4 +3,6 @@
     <string name="title_menu">Menu</string>
     <string name="title_dashboard">Offers</string>
     <string name="title_notifications">Branches</string>
+    <string name="priceFormatter">%1$s \n LE</string>
+    <string name="productFormatter">%1$s Product</string>
 </resources>

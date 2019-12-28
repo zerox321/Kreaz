@@ -42,6 +42,21 @@
         <argument
             android:name="Category"
             app:argType="com.example.bottomnavigationexample.ui.home.CategoryData" />
+        <action
+            android:id="@+id/action_home_detail_fragment_to_item_detail_fragment"
+            app:destination="@id/item_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/item_detail_fragment"
+        android:name="com.example.bottomnavigationexample.ui.home.homeDetail.itemFragment.ItemDetailFragment"
+        android:label="item_detail_fragment"
+        tools:layout="@layout/item_detail_fragment">
+
+
+        <argument
+            android:name="Category"
+            app:argType="com.example.bottomnavigationexample.ui.home.CategoryData" />
     </fragment>
 
 

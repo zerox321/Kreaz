@@ -50,7 +50,17 @@
             android:padding="@dimen/md_keyV"
             android:gravity="center"
             android:textColor="@android:color/white" />
-
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:padding="@dimen/md_keyV"
+            android:text="@{String.format(@string/productFormatter, Category.totalItems)}"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 </layout>
